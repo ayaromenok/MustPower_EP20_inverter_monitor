@@ -7,15 +7,35 @@ str1: "0A 03 79 18 00 0A 5D ED" // size 25
 
 #### str0:
 
-|| Data || Name || type||
-|----|----|----|
-| int8? | MachineType | | 
-| int16 | SoftwareVersion | |
-| int16 | WorkState | |
-| int16 | BatClass | V |
-| int16 | RatedPower| |
+| Data      | Name        | Type |
+|-----------|-------------|------|
+| int8?     | MachineType | | 
+| int16     | SoftwareVersion | |
+| int16     | WorkState | |
+| int16     | BatClass | V |
+| int16     | RatedPower| |
 | int16*0.1 | GridVoltage | V |
 | int16*0.1 | GridFrequency | Hz |
 | int16*0.1 | OutputVoltage | V |
 | int16*0.1 | OutputFrequency | V |
 | int16*0.1 | LoadCurrent | A |
+| int16     | LoadPower | W |
+| int16     | LoadPercent| % |
+| int16     | LoadState | |
+| int16*0.1 | BatteryVoltage | V |
+| int16*0.1 | BatteryCurrent  | A |
+| int16     | BatterySoc | |
+| int16     | TransformerTem | C |
+| int16     | AvrState | |
+| int16     | BuzzerState | |
+| int16     | Fault | |
+| int16     | Alarm | |
+| int16     | ChargeState | |
+| int16     | ChargeFlag | |
+| int16     | MainSw| |
+| int16     | DelayType| |
+
+#### str1:
+| Data      | Name        | Type |
+|-----------|-------------|------|
+| int16     | | |
