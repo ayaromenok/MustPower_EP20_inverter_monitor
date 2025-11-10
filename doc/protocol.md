@@ -1,14 +1,23 @@
-/dev/ttyUSB0, 9600
+### Device
 
-str0: "0A 03 75 30 00 1B 1E B9" // size 59
-str1: "0A 03 79 18 00 0A 5D ED" // size 25
+| Device | speed |
+|--------|-------|
+|/dev/ttyUSB0 | 9600 |
 
-### response:
+
+### Query
+| Name      | Data        | Size |
+|:----------|:------------|:----:|
+|str0 | "0A 03 75 30 00 1B 1E B9" | 59 |
+|str1 | "0A 03 79 18 00 0A 5D ED" | 25 |
+
+
+### Response:
 
 #### str0:
 
 | Data      | Name        | Type |
-|-----------|-------------|------|
+|:----------|:------------|:----:|
 | int8?     | MachineType | | 
 | int16     | SoftwareVersion | |
 | int16     | WorkState | |
