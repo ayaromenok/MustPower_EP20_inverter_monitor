@@ -41,13 +41,19 @@ try:
             outVoltage = unpacked_data1[9]*0.1;  #V
             outFreq = unpacked_data1[10]*0.1;    #Hz
             print(f"Work State:       {unpacked_data1[4]}")
-            print(f"Battery Class:    {unpacked_data1[5]} Volt")
-            print(f"Rated Power:      {unpacked_data1[6]} Watt")
+            print(f"Battery Class:    {unpacked_data1[5]} V")
+            print(f"Rated Power:      {unpacked_data1[6]} W")
 #            print(f"Grid Voltage: {gridVoltage:.1f} Volt {hex(unpacked_data1[7])}") #debug example with hex
-            print(f"Grid Voltage:     {gridVoltage:.1f} Volt")
-            print(f"Grid Frequence:   {gridFreq:.1f} Hertz")
-            print(f"Outзut Voltage:   {outVoltage:.1f} Volt")
-            print(f"Output Frequency: {outFreq:.1f} Hertz")
+            print(f"Grid Voltage:     {gridVoltage:.1f} V")
+            print(f"Grid Frequence:   {gridFreq:.1f} Hz")
+            print(f"Outзut Voltage:   {outVoltage:.1f} V")
+            print(f"Output Frequency: {outFreq:.1f} Hz")
+
+            print(f"Battery Voltage:: {unpacked_data1[16]*.1:.1f} V")
+            print(f"Battery Current:  {unpacked_data1[17]*.1:.1f} A")
+
+            print(f"Battery SOC:      {unpacked_data1[19]} %")
+            print(f"Transform Temp:   {unpacked_data1[20]} C")
 
         else:
             print("No data received.")
