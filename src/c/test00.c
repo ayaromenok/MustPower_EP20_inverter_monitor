@@ -6,7 +6,7 @@
 #include <unistd.h>  // For write()
 
 
-int setup_tty(unsigned char* ttyUSBx) {
+int setup_tty(const char* ttyUSBx) {
     int serial_port = open(ttyUSBx, O_RDWR | O_NOCTTY | O_NDELAY);
 
     if (serial_port < 0) {
@@ -89,7 +89,7 @@ int read_from_tty(int serial_port){
 
 int main() {
 int serial_port;
-unsigned char ttyUSBx[12] = "/dev/ttyUSB0";
+const char ttyUSBx[12] = "/dev/ttyUSB0";
 unsigned char str_handshake[] = {0x0C, 0x03, 0x79, 0x18, 0x00, 0x07, 0x9C, 0x28};
 unsigned char str0[] = {0x0A, 0x03, 0x75, 0x30, 0x00, 0x1B, 0x1E, 0xB9}; //responce 59 bytes
 unsigned char str1[] = {0x0A, 0x03, 0x79, 0x18, 0x00, 0x0A, 0x5D, 0xED}; //responce 25 bytes
