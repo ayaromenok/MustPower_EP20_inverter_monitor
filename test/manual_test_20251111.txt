@@ -1,0 +1,47 @@
+example of str0(59 bytes) with 
+
+0a 
+03 36 	822
+00 02 	2
+8e 32 	36402
+00 04 	4	WorkState		+ 4==LINE, 3==no AC
+00 0c 	12	BatClass		+
+03 e8 	1000	 RatedPower		+
+08 b6 	2230*0.1 GridVoltage		+ (or 00 00 if no power)
+01 f4 	500*0.1  Freq			+ (or 00 00 if no power)
+08 b4   2228*.1  Output Voltage		+ (or 08 A1 - 2209*.1)
+01 f4 	500*.1	out freq		+
+00 0d 	13*.1	current			+ 1.3A
+00 ac 	172	load power		+ W
+01 2b 	299	load VA			+ Volt*Amp
+00 11 	17	load percent		+
+00 00 	0	load state		? (0 on AC & Battery)
+00 87 	135*.1	Battery voltage		+ (00 7B - 123*.1V)
+00 10 	16*0.1	battery current		+ (FF AA 65450*.1 -no idea)
+00 00 	0				?
+00 64 	100	battery SOC		+ Battery SoC(State of Charge) 
+00 20 	32	Transform Temp		+ Celsius
+00 00 	0	avr state		+? "Automatic Voltage Regulation". AVR_BYPASS, AVR, BYPASS
+00 00 	0	Buzzer			+?
+00 00 	0	fault			+? (code from UserManual)
+00 00 	0	alarm			+? (0 - def, 1-load, 2-overload ?)
+00 02 	2	charge state		+?
+00 01 	1	charge flag		+?
+00 01 	1	main sw			+?
+0001ce33	118323	delay type	? microseconds? - in power manager - "long delay"
+
+next values:
+00017a33	96819
+0001aaa2	109218
+000117f3	71667
+00017782	71554
+
+RTSEnable = true
+write > delay 200 ms > read
+
+
+type charge, A for 12V	A for 24V
+300		10		5
+600		20		10
+800		25		15
+1000		30		15
