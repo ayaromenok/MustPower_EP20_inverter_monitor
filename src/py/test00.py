@@ -54,6 +54,7 @@ try:
 
             print(f"Battery SOC:      {unpacked_data1[19]} %")
             print(f"Transform Temp:   {unpacked_data1[20]} C")
+            print(f"\n\n all data: {unpacked_data1}")
 
         else:
             print("No data received.")
