@@ -5,14 +5,6 @@ import sys
 
 import paho.mqtt.client as mqtt
 
-#ser = serial.Serial(
-#    port='/dev/ttyUSB0',
-#    baudrate=9600,
-#    bytesize=serial.EIGHTBITS,
-#    parity=serial.PARITY_NONE,
-#    timeout=1 # Read timeout in seconds
-#)
-
 
 def init_all():
     print("init_all()")
@@ -53,7 +45,7 @@ def read_serial_data_EP20(ups_data, port_name):
 
             tty_port.write(serial.to_bytes(byte_list1))
             #print(f"Sent byte list: {byte_list1}")
-            time.sleep(0.1) #0.1 is good value
+            time.sleep(0.5) #0.1 is good value
 
             # Read binary data
             data1 = tty_port.read(59) # Read up to 59 bytes
@@ -103,14 +95,20 @@ def publish_message(port_name, ups_data, time_interval):
     client = mqtt.Client()
     client.connect("localhost", 1883, 60)
     client.loop_start()
-    _count = 0;
+#    _count = 0;
     while True:
 #        message = f"Message {_count}"
         ups_data = read_serial_data_EP20(ups_data, port_name)
-        message = f"Message #{_count}: {ups_data}"
-        client.publish("test/topic", message)
-        #print(f"Published: {message}")
-        _count += 1
+#ToDo: don't send 0000000(zeros)
+        client.publish("EP20/battery_voltage", ups_data[16]*0.1)
+        client.publish("EP20/battery_current", ups_data[17]*0.1)
+        client.publish("EP20/battery_SOC", ups_data[19])
+        client.publish("EP20/UPS_transformer_temp", ups_data[20])
+        client.publish("EP20/grid_voltage", ups_data[7]*0.1)
+        client.publish("EP20/grid_frequency", ups_data[8]*0.1)
+        client.publish("EP20/UPS_output_voltage", ups_data[9]*0.1)
+        client.publish("EP20/UPS_output_frequency", ups_data[10]*0.1)
+#        _count += 1
         time.sleep(time_interval)
     client.loop_stop()
     client.disconnect()
