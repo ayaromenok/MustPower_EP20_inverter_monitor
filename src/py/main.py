@@ -8,19 +8,9 @@ import paho.mqtt.client as mqtt
 
 def init_all():
     print("init_all()")
-    data0 = b"00000000000000000000000000000000000000000000000000000000000"
+    data0 = b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
     format_string = '>BHHHHHHHHHHHHHHHHHHHHHHHHHHHI'
     ups_data = struct.unpack(format_string, data0)
-
-#    tty_port = serial.Serial(
-#        port='/dev/ttyUSB0',
-#        port=port_name,
-#        baudrate=9600,
-#        bytesize=serial.EIGHTBITS,
-#        parity=serial.PARITY_NONE,
-#        timeout=1 # Read timeout in seconds
-#    )
-#    time.sleep(0.5) # Give the port some time to initialize
     return ups_data
 
 def read_serial_data_EP20(ups_data, port_name):
