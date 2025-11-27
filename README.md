@@ -2,6 +2,10 @@
 
 Must Power EP 20 series control utility. It may also work with newest EP 21 series.
 
+### Status
+
+So far so good - it's working perfect with Home Assistant. Exist some issues with responce from UPS - like 1/5 query finihsed without responce - but it's ok for me (just use previous values). In the time of this update PY code working about 5 days correctly. Nore testing will come
+
 ### Other names
 
  - Official name looks like `MUST EP20 - 1012 PRO` (for 1000W version. 600W looks like `MUST EP20 - 0612 PRO` ).
