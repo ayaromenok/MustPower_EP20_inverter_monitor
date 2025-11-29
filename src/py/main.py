@@ -105,6 +105,7 @@ def publish_message(port_name, ups_data, time_interval):
 
 
 if __name__ == "__main__":
+    print("EP20 Power Monitor version XXX from 20251129")
     time_interval = 5; #sec, for debugging
     ups_data = init_all();
     publish_message('/dev/ttyUSB0',ups_data, time_interval)
