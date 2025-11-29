@@ -1,6 +1,6 @@
-# MustPower_EP20_inverter_control
+# MustPower EP20 inverter monitor
 
-Must Power EP 20 series control utility. It may also work with newest EP 21 series.
+Must Power EP 20 series monitor utility. It may also work with newest EP 21 series, as well as EP30 and any other MustPower UPS/inverters which _not_ use RS485.
 
 ### Status
 
