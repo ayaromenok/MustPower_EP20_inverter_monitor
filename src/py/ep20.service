@@ -1,0 +1,8 @@
+[Unit]
+Description=UPS EP20 service
+
+[Service]
+ExecStart=python /home/pi/projects/MustPower_EP20_inverter_monitor/src/py/main.py
+
+[Install]
+WantedBy=multi-user.target
